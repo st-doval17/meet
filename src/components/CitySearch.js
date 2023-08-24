@@ -20,13 +20,14 @@ const CitySearch = ({ allLocations }) => {
   };
 
   const handleItemClicked = (event) => {
-    const clickedValue = event.target.textContent;
-    setQuery(clickedValue);
+    const value = event.target.textContent;
+    setQuery(value);
     setShowSuggestions(false);
   };
 
   return (
     <div id="city-search">
+      <label>Location: </label>
       <input
         type="text"
         className="city"

@@ -12,10 +12,12 @@ const NumberOfEvents = () => {
 
   return (
     <div id="number-of-events">
+      <label>Number of Events: </label>
       <input
         type="text"
         id="number-of-events-input"
         className="number-of-events-input"
+        placeholder="e.g., 32"
         value={number}
         onChange={handleInputChanged}
       />
