@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const CitySearch = ({ allLocations }) => {
+const CitySearch = ({ allLocations, onLocationChange }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -23,6 +23,8 @@ const CitySearch = ({ allLocations }) => {
     const value = event.target.textContent;
     setQuery(value);
     setShowSuggestions(false);
+
+    onLocationChange(value);
   };
 
   return (
