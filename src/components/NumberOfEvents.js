@@ -7,7 +7,6 @@ const NumberOfEvents = ({ numberOfEvents, onNumberOfEventsChange }) => {
     const value = event.target.value;
     onNumberOfEventsChange(value);
   };
-
   return (
     <div id="number-of-events">
       <label>Number of Events: </label>
