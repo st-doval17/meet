@@ -18,9 +18,13 @@ describe("<EventList /> component", () => {
   test("renders correct number of events", async () => {
     const allEvents = await getEvents();
     EventListComponent.rerender(<EventList events={allEvents} />);
-    expect(EventListComponent.getAllByRole("listitem")).toHaveLength(
-      allEvents.length
-    );
+
+    // Use waitFor to wait for the element to be present in the DOM
+    await waitFor(() => {
+      expect(EventListComponent.getAllByRole("listitem")).toHaveLength(
+        allEvents.length
+      );
+    });
   });
 });
 
@@ -30,6 +34,7 @@ describe("<EventList /> integration", () => {
     const AppDOM = AppComponent.container.firstChild;
     const EventListDOM = AppDOM.querySelector("#event-list");
 
+    // Use waitFor to wait for the element to be present in the DOM
     await waitFor(() => {
       const EventListItems = within(EventListDOM).queryAllByRole("listitem");
       expect(EventListItems.length).toBe(32);
