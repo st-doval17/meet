@@ -12,7 +12,7 @@ describe("<NumberOfEvents /> component", () => {
     mockOnNumberOfEventsChange = jest.fn();
     NumberOfEventsComponent = render(
       <NumberOfEvents
-        numberOfEvents=""
+        numberOfEvents="32"
         onNumberOfEventsChange={mockOnNumberOfEventsChange}
       />
     );
@@ -26,7 +26,7 @@ describe("<NumberOfEvents /> component", () => {
 
   test("default number is 32", async () => {
     const numberTextBox = NumberOfEventsComponent.queryByRole("textbox");
-    expect(numberTextBox).toHaveValue("");
+    expect(numberTextBox).toHaveValue("32");
   });
 
   test("number of events text box value changes when the user types in it", async () => {
