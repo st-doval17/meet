@@ -17,6 +17,7 @@ const NumberOfEvents = ({ numberOfEvents, onNumberOfEventsChange }) => {
         placeholder="e.g., 32"
         value={numberOfEvents}
         onChange={handleInputChanged}
+        data-testid="numberOfEventsInput"
       />
     </div>
   );
