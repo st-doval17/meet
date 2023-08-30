@@ -15,6 +15,7 @@ const App = () => {
 
   const fetchData = async () => {
     try {
+      setIsLoading(true);
       const allEvents = await getEvents();
       const filteredEvents =
         currentCity === "See all cities"
