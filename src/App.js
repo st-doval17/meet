@@ -3,6 +3,7 @@ import CitySearch from "./components/CitySearch";
 import EventList from "./components/EventList";
 import NumberOfEvents from "./components/NumberOfEvents";
 import { extractLocations, getEvents } from "./api";
+import { InfoAlert, ErrorAlert } from "./components/Alert";
 
 import "./App.css";
 
@@ -12,6 +13,8 @@ const App = () => {
   const [events, setEvents] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [isLoading, setIsLoading] = useState(true);
+  const [infoAlert, setInfoAlert] = useState("");
+  const [errorAlert, setErrorAlert] = useState("");
 
   const fetchData = async () => {
     try {
@@ -23,7 +26,9 @@ const App = () => {
           : allEvents.filter((event) => event.location === currentCity);
       setEvents(filteredEvents.slice(0, currentNOE));
       setAllLocations(extractLocations(allEvents));
+      setErrorAlert("");
     } catch (error) {
+      setErrorAlert("An error occurred while fetching events.");
     } finally {
       setIsLoading(false);
     }
@@ -36,12 +41,28 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="app-title">Meet App</h1>
-      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
+      <div className="alerts-container">
+        {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+        {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+      </div>
+      <CitySearch
+        allLocations={allLocations}
+        setCurrentCity={setCurrentCity}
+        setInfoAlert={setInfoAlert}
+      />
       <NumberOfEvents
         numberOfEvents={currentNOE}
-        onNumberOfEventsChange={setCurrentNOE}
+        onNumberOfEventsChange={(value) => {
+          setCurrentNOE(value);
+          setInfoAlert("");
+        }}
+        setErrorAlert={setErrorAlert} // Pass the setErrorAlert function
       />
-      {isLoading ? <p>Loading...</p> : <EventList events={events} />}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : errorAlert.length ? null : (
+        <EventList events={events} />
+      )}
     </div>
   );
 };

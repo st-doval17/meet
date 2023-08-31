@@ -7,13 +7,16 @@ import NumberOfEvents from "../components/NumberOfEvents";
 describe("<NumberOfEvents /> component", () => {
   let NumberOfEventsComponent;
   let mockOnNumberOfEventsChange;
+  let mockSetErrorAlert;
 
   beforeEach(() => {
     mockOnNumberOfEventsChange = jest.fn();
+    mockSetErrorAlert = jest.fn();
     NumberOfEventsComponent = render(
       <NumberOfEvents
         numberOfEvents="32"
         onNumberOfEventsChange={mockOnNumberOfEventsChange}
+        setErrorAlert={mockSetErrorAlert}
       />
     );
   });
