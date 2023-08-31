@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CitySearch from "./components/CitySearch";
 import EventList from "./components/EventList";
 import NumberOfEvents from "./components/NumberOfEvents";
@@ -37,7 +37,10 @@ const App = () => {
     <div className="App">
       <h1 className="app-title">Meet App</h1>
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
-      <NumberOfEvents onNumberOfEventsChange={setCurrentNOE} />
+      <NumberOfEvents
+        numberOfEvents={currentNOE}
+        onNumberOfEventsChange={setCurrentNOE}
+      />
       {isLoading ? <p>Loading...</p> : <EventList events={events} />}
     </div>
   );
