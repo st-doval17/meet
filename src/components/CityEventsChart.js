@@ -23,8 +23,7 @@ const CityEventsChart = ({ allLocations, events }) => {
       const count = events.filter(
         (event) => event.location === location
       ).length;
-      const cityMatch = location.match(/(.*?)\b(?:,|-)/);
-      const city = cityMatch ? cityMatch[1].trim() : location;
+      const city = location.split(/, | - /)[0];
       return { city, count };
     });
     return data;
