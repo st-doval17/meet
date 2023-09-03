@@ -20,7 +20,7 @@ const EventGenresChart = ({ events }) => {
 
   useEffect(() => {
     getData();
-  }, [events]);
+  }, [`${events}`]);
 
   const renderCustomizedLabel = ({
     cx,
