@@ -23,7 +23,8 @@ const CityEventsChart = ({ allLocations, events }) => {
       const count = events.filter(
         (event) => event.location === location
       ).length;
-      const city = location.split(/, | - /)[0];
+      const cityMatch = location.match(/(.*?)\b(?:,|-)/);
+      const city = cityMatch ? cityMatch[1].trim() : location;
       return { city, count };
     });
     return data;
@@ -47,7 +48,7 @@ const CityEventsChart = ({ allLocations, events }) => {
           interval={0}
           tick={{ dx: 20, dy: 40, fontSize: 14 }}
         />
-        <YAxis type="number" dataKey="count" name="Number of events" />
+        <YAxis type="number" dataKey="count" name="Number of Events" />
         <Tooltip cursor={{ strokeDasharray: "3 3" }} />
         <Scatter name="A school" data={data} fill="#8884d8" />
       </ScatterChart>
