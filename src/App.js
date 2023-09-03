@@ -67,7 +67,9 @@ const App = () => {
         }}
         setErrorAlert={setErrorAlert}
       />
-      <CityEventsChart allLocations={allLocations} events={events} />
+      <div className="charts-container">
+        <CityEventsChart allLocations={allLocations} events={events} />
+      </div>
       {isLoading ? (
         <p>Loading...</p>
       ) : errorAlert.length ? null : (
