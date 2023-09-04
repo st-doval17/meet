@@ -63,7 +63,7 @@ Scenario: User adds app shortcut to home screen
 - When the user opens the app and navigates to the home screen
 - Then the app's shortcut icon should be visible on the home screen
 
-Feature 6: View Chart of Upcoming Events by City
+Feature 6: View of Upcoming Events by City
 
 As a user, I would like to be able to see a chart showing the upcoming events in each city so that I know what events are organized in which city.
 
@@ -72,3 +72,8 @@ Scenario: User views chart of upcoming events by city
 - Given the user is on the events page
 - When the user clicks on the "View Events Chart" button
 - Then the app should display a chart showing upcoming events organized by city
+
+## Graph/Pie Chart
+Chart![MeetAppHeader](https://github.com/st-doval17/meet/assets/131451577/b85192ad-63bd-47f9-933b-73b5cbddab07)
+![pieChart](https://github.com/st-doval17/meet/assets/131451577/c18ad06e-71ec-4c0a-8a75-e931f1298a75)
+![graph](https://github.com/st-doval17/meet/assets/131451577/236b22b1-d194-4a10-ae6b-f7b3552a8e68)
