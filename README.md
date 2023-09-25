@@ -1,11 +1,17 @@
 # Meet App
 
+![Capture](https://github.com/st-doval17/meet/assets/131451577/4440e27a-b760-4a39-9c00-f07676000c84)
+
+
 A “meetup” app of sorts, displaying a list of upcoming events for a city and time of the user’s choosing. It will also be available for users to use while offline
 
 ## Description
 
 To build a serverless, progressive web application (PWA) with React using a test-driven development (TDD) technique. The application uses the Google
 Calendar API to fetch upcoming events.
+
+
+![Capture1](https://github.com/st-doval17/meet/assets/131451577/364c54e5-1d13-40bd-87ab-fd94437932fe)
 
 ## Serveless Functions
 
